@@ -5,34 +5,33 @@
  
 @layer base {
   :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
     
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
     
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
     
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
+    --primary: 327 100% 64%;
+    --primary-foreground: 0 0% 98%;
     
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
     
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 65%;
     
-    --primary: 327 73% 64%;
-    --primary-foreground: 210 40% 98%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
     
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
     
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    
-    --ring: 216 34% 17%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 240 5% 65%;
     
     --radius: 0.5rem;
   }
@@ -45,13 +44,16 @@
   body {
     @apply bg-background text-foreground;
     background-color: #13111C;
+    background-image: radial-gradient(circle at center, rgba(248, 76, 186, 0.1) 0%, rgba(19, 17, 28, 0) 70%);
   }
 }
 
-.glow-text {
-  text-shadow: 0 0 10px rgba(248, 76, 186, 0.7);
-}
-
-.neon-border {
-  box-shadow: 0 0 15px rgba(248, 76, 186, 0.5);
+@layer components {
+  .glow-text {
+    text-shadow: 0 0 10px rgba(248, 76, 186, 0.7), 0 0 20px rgba(248, 76, 186, 0.5);
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 15px rgba(248, 76, 186, 0.3), inset 0 0 15px rgba(248, 76, 186, 0.1);
+  }
 }

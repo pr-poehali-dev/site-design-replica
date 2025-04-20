@@ -46,7 +46,7 @@ const CipherPage = () => {
 
       <div className="w-full max-w-md">
         <div className="neon-border rounded-lg p-6 bg-card/30 border border-primary/50 shadow-[0_0_15px_rgba(248,76,186,0.3)]">
-          <h2 className="text-2xl font-bold mb-6 text-primary text-center">Создание нового сценария</h2>
+          <h2 className="text-2xl font-bold mb-6 text-primary text-center glow-text">Создание нового сценария</h2>
           
           <div className="space-y-4">
             <div className="space-y-2">

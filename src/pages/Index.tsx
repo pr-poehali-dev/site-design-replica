@@ -23,23 +23,26 @@ const Index = () => {
     }
   }, []);
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    setCipherWord(input);
     
-    const upperCipherWord = cipherWord.toUpperCase();
-    
-    // Поиск шифр-слова в сохраненных данных
-    const foundCipher = savedCiphers.find(cipher => 
-      cipher.cipherWord.toUpperCase() === upperCipherWord
-    );
-    
-    if (foundCipher) {
-      setResult(foundCipher);
+    // Автоматический поиск при вводе
+    if (input.trim()) {
+      const upperCipherWord = input.toUpperCase();
+      
+      // Поиск шифр-слова в сохраненных данных
+      const foundCipher = savedCiphers.find(cipher => 
+        cipher.cipherWord.toUpperCase() === upperCipherWord
+      );
+      
+      if (foundCipher) {
+        setResult(foundCipher);
+      } else {
+        setResult(null);
+      }
     } else {
-      setResult({
-        cipherWord: upperCipherWord,
-        decryption: "Расшифровка не найдена"
-      });
+      setResult(null);
     }
   };
   
@@ -62,18 +65,18 @@ const Index = () => {
         <p className="text-center mb-6 text-gray-300">Введите шифр-слово чтобы узнать подсказку</p>
         
         <div className="neon-border rounded-lg p-6 bg-card/30 border border-primary/50 shadow-[0_0_15px_rgba(248,76,186,0.3)]">
-          <form onSubmit={handleSubmit} className="flex gap-2">
+          <div className="flex gap-2">
             <Input
               type="text"
               placeholder="ВВЕДИТЕ ШИФР-СЛОВО"
               value={cipherWord}
-              onChange={(e) => setCipherWord(e.target.value)}
+              onChange={handleInputChange}
               className="bg-input/30 text-white border-primary/30 focus:border-primary/70"
             />
-            <Button type="submit" className="bg-primary hover:bg-primary/90">
+            <Button className="bg-primary hover:bg-primary/90">
               <Search className="h-5 w-5" />
             </Button>
-          </form>
+          </div>
           
           {result && (
             <div className="mt-6 p-4 bg-background/40 rounded-md border border-primary/30">
